@@ -1,0 +1,12 @@
+{
+  "name": "jest-beginner",
+  "version": "1.0.0",
+  "description": "This is a practice of using jest to test Javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Glori Ding",
+  "license": "ISC"
+}
