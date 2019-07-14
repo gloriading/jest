@@ -1,5 +1,14 @@
 const functions = require('./functions');
 
+// beforeEach(() => initDatabase());
+// afterEach(() => cleanDatabase());
+beforeAll(() => initDatabase());
+afterAll(() => cleanDatabase());
+
+const initDatabase = () => console.log('Init Database'); 
+const cleanDatabase = () => console.log('Clean Database');
+
+
 test('2 + 2 equals 4', () => {
   expect(functions.add(2, 2)).toBe(4);
 });
@@ -10,6 +19,10 @@ test('2 + 2 NOT equals 5', () => {
 
 test('Should be null', () => {
   expect(functions.isNull()).toBeNull();
+});
+
+test('checkValue function exists', () => {
+  expect(functions.checkValue).toBeDefined();
 });
 
 test('Should be false', () => {
@@ -43,7 +56,7 @@ test('Admin should be in user name', () => {
 // Promise
 test('user fetched name sould be Ervin Howell, test 1', () => {
   expect.assertions(1);
-  return functions.fetchUser()
+  return functions.fetchUser(2)
   .then(data => {
     expect(data.name).toEqual('Ervin Howell');
   })
@@ -52,7 +65,13 @@ test('user fetched name sould be Ervin Howell, test 1', () => {
 // Async
 test('user fetched name sould be Ervin Howell, test 2', async () => {
   expect.assertions(1);
-  const data = await functions.fetchUser();
+  const data = await functions.fetchUser(2);
   expect(data.name).toEqual('Ervin Howell');
+});
+
+test('get error when fail to fetch users', async () => {
+  expect.assertions(1);
+  const data = await functions.fetchUser(30);
+  expect(data).toEqual(`Fail to fetch user 30`);
 });
 

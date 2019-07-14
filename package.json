@@ -4,7 +4,8 @@
   "description": "This is a practice of using jest to test Javascript",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "testwatch": "jest --watchAll"
   },
   "keywords": [],
   "author": "Glori Ding",
