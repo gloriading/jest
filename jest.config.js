@@ -6,6 +6,7 @@ module.exports = {
  collectCoverageFrom: [
   "src/*.{js,jsx}",
   "!/node_modules/**",
+  "!src/app.js"
  ],
  coverageThreshold: {
    "src/*.{js,jsx}": {
